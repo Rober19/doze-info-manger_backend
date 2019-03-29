@@ -1,0 +1,1 @@
+cd node_src & npm start
