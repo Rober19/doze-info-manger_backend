@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Members from './Members/Members';
 
+
 class App extends Component {
   render() {
     return (
@@ -35,28 +36,13 @@ class App extends Component {
                 </p>
               </div>
               <div className="col l4 offset-l2 s12">
-                <h5 className="white-text">Links</h5>
+                <h5 className="white-text">Encuentranos: </h5>
                 <ul>
                   <li>
-                    <a className="grey-text text-lighten-3" href="#!">
-                      Link 1
+                    <a className="grey-text text-lighten-3" href="https://github.com/doze-group">
+                      Github
                     </a>
-                  </li>
-                  <li>
-                    <a className="grey-text text-lighten-3" href="#!">
-                      Link 2
-                    </a>
-                  </li>
-                  <li>
-                    <a className="grey-text text-lighten-3" href="#!">
-                      Link 3
-                    </a>
-                  </li>
-                  <li>
-                    <a className="grey-text text-lighten-3" href="#!">
-                      Link 4
-                    </a>
-                  </li>
+                  </li>                 
                 </ul>
               </div>
             </div>
