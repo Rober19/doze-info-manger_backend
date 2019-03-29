@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Members from './Members/Members';
-
+import MembersList from './Members/MembersList';
 
 class App extends Component {
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
         </header> */}
 
         <Members />
+        <MembersList />
 
         <footer className="page-footer">
           <div className="row">
@@ -42,7 +43,7 @@ class App extends Component {
                     <a className="grey-text text-lighten-3" href="https://github.com/doze-group">
                       Github
                     </a>
-                  </li>                 
+                  </li>
                 </ul>
               </div>
             </div>
@@ -51,7 +52,7 @@ class App extends Component {
             <div className="container">
               © 2019 doze-group
               <a className="grey-text text-lighten-4 right" href="#!">
-                More Links
+                Web
               </a>
             </div>
           </div>
