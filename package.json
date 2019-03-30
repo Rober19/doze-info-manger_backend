@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@google-cloud/firestore": "^1.2.0",
+    "@types/cors": "^2.8.4",
     "celebrate": "^9.0.2",
     "chalk": "^2.4.2",
     "cors": "^2.8.5",

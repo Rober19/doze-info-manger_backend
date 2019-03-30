@@ -5,6 +5,7 @@ import MemberRoutes from './components/members/member.routes';
 import morgan from 'morgan';
 import _config, { yellow } from './config/config';
 import helmet from 'helmet';
+import cors from 'cors';
 
 class Server {
   public app: express.Application;
@@ -21,6 +22,7 @@ class Server {
     this.app.use(json());
     this.app.use(urlencoded({ extended: false }));
     this.app.use(helmet());
+    this.app.use(cors());
   }
 
   routes() {
