@@ -17,7 +17,7 @@ class Server {
   }
 
   AppConfig() {
-    this.app.set('port', process.env.PORT || port[0]);
+    this.app.set('port', process.env.PORT || port[1]);
     this.app.use(morgan('dev'));
     this.app.use(json());
     this.app.use(urlencoded({ extended: false }));

@@ -1,7 +1,8 @@
 import Joi from 'joi';
 import { firestore } from '../../config/firestore';
 
-var joiSchema = Joi.object({
+
+export const Member_joi_body = Joi.object({
   nombre: Joi.string().required(),
   apellido: Joi.string().required(),
   rama: Joi.string().required(),
@@ -13,6 +14,8 @@ var joiSchema = Joi.object({
     .required(),
 });
 
-export const Member_Joi = joiSchema;
+export const Member_joi_params = Joi.object({
+  id: Joi.string().required()
+});
 
 export const Member_Doc = firestore.collection('members');
