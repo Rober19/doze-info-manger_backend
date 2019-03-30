@@ -5,8 +5,6 @@ import { Firestore } from '@google-cloud/firestore';
 
 const { project_id, private_key, client_email } = (credentials as any).rober19_firebase;
 
-console.log(project_id);
-
 export const firestore = new Firestore({
   projectId: project_id,
   credentials: {

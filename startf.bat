@@ -1,1 +1,0 @@
-cd react_src & npm start
