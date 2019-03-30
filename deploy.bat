@@ -25,5 +25,5 @@ set datestr=%month%_%day%_%year%
 REM tambien en la fecha se puede usar el %date%
 git commit -m "[%gituser%] [%datestr%] %commit% "
 git push origin master
-git push heroku master
+::git push heroku master
 pause
