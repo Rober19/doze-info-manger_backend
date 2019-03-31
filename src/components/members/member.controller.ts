@@ -1,7 +1,13 @@
 import { Request, Response } from 'express';
-import { Create as _Create, FindAll as _FindAll, DeleteOneByID, FindOneById, UpdateOneByID } from './members.service';
+import {
+  Create as _Create,
+  FindAll as _FindAll,
+  DeleteOneByID,
+  FindOneById,
+  UpdateOneByID,
+} from './members.service';
 
-export async function Create(req: Request, res: Response) {   
+export async function Create(req: Request, res: Response) {
   res.send(await _Create(req.body));
 }
 

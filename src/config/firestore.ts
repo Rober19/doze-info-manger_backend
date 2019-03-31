@@ -17,16 +17,16 @@ export default class Firestore_ {
   }
 
   async getByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
-    const oneResult = await this.document_
-      .where(fieldPath, opStr, value)
-      .get();
+    const oneResult = await this.document_.where(fieldPath, opStr, value).get();
     return oneResult.docs.map((doc: { data: () => void }) => doc.data());
   }
 
   async deleteByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
     //return await this.document_.doc(id).delete();
-    const del_result = this.document_.where(fieldPath, opStr, value);
-    del_result.get().then(querySnapshot => querySnapshot.forEach(doc => doc.ref.delete()));
+    const del_result = await this.document_.where(fieldPath, opStr, value).get();
+    let deleted = del_result.docs.map((doc: { data: () => void }) => doc.data());
+    del_result.forEach(doc => doc.ref.delete());
+    return deleted;
   }
 
   async updateOne(id: string, value: object) {
