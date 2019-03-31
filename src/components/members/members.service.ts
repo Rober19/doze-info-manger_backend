@@ -9,23 +9,23 @@ export async function Create(Member: object) {
   }
 }
 
-export async function FindAll(MemberID: string) {
+export async function FindAll() {
   try {
-    return await dbMember.getAll(MemberID);
+    return await dbMember.getAll();
   } catch (error) {
     return error;
   }
 }
 
-export async function DeleteOne(MemberID: string) {
+export async function DeleteOneByID(MemberID: string) {
   try {
-    return await dbMember.deleteOne(MemberID);
+    return await dbMember.deleteByQuery('id', '==', MemberID);
   } catch (error) {
     return error;
   }
 }
 
-export async function UpdateOne(MemberID: string, Member: object) {
+export async function UpdateOneByID(MemberID: string, Member: object) {
   try {
     return await dbMember.updateOne(MemberID, Member);
   } catch (error) {
@@ -35,7 +35,9 @@ export async function UpdateOne(MemberID: string, Member: object) {
 
 export async function FindOneById(MemberID: string) {
   try {
-    return await dbMember.getOne('id', '==', MemberID);
+    //el valor de la propiedad id del objeto
+    //return await dbMember.getByQuery('id', '==', MemberID);
+    return await dbMember.getByQuery('id', '==', MemberID);
   } catch (error) {
     return error;
   }

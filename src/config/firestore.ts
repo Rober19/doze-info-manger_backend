@@ -12,29 +12,33 @@ export default class Firestore_ {
     this.document_ = document;
   }
 
-  async saveOne(value: any) {
+  async saveOne(value: object) {
     return await this.validatorResponse(this.document_.doc(generate()).set(value), value);
   }
 
-  async getOne(fieldPath: string|FieldPath, opStr: WhereFilterOp, value: any) {
-    const oneResult = await this.document_.where(fieldPath, opStr, value);
-    return oneResult;
+  async getByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
+    const oneResult = await this.document_
+      .where(fieldPath, opStr, value)
+      .get();
+    return oneResult.docs.map((doc: { data: () => void }) => doc.data());
   }
 
-  async deleteOne(id: string) {
-    return await this.document_.doc(id).delete();
+  async deleteByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
+    //return await this.document_.doc(id).delete();
+    const del_result = this.document_.where(fieldPath, opStr, value);
+    del_result.get().then(querySnapshot => querySnapshot.forEach(doc => doc.ref.delete()));
   }
 
-  async updateOne(id: string, value: any) {
+  async updateOne(id: string, value: object) {
     return await this.document_.doc(id).update(value);
   }
-  async getAll(value: any) {
+  async getAll() {
     const data = await this.document_.get();
     return data.docs.map((doc: { data: () => void }) => doc.data());
   }
 
-  validatorResponse(res: any, data: any) {
-    if (!moment(res._writeTime).isValid()) return new Error('Break');
+  validatorResponse(res: object, data: object) {
+    if (!moment((res as any)._writeTime).isValid()) return new Error('Break');
     return { data, status: 200 };
   }
 }
