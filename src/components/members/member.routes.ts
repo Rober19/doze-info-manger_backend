@@ -9,7 +9,7 @@ export default class MemberRoutes {
   }
 
   routes(app: Router) {
-    app.get('/member', FindAll);
+    app.get('/members', FindAll);
     app.post('/member', celebrate({ body: Member_joi_body }), Create);
     app.get('/member', celebrate({ query: Member_joi_params }), FindOne);
     app.put(
