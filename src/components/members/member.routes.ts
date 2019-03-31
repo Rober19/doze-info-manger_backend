@@ -11,12 +11,12 @@ export default class MemberRoutes {
   routes(app: Router) {
     app.get('/member', FindAll);
     app.post('/member', celebrate({ body: Member_joi_body }), Create);
-    app.get('/member/:id', celebrate({ params: Member_joi_params }), FindOne);
+    app.get('/member', celebrate({ query: Member_joi_params }), FindOne);
     app.put(
-      '/member/:id',
-      celebrate({ body: Member_joi_body, params: Member_joi_params }),
+      '/member',
+      celebrate({ body: Member_joi_body, query: Member_joi_params }),
       FindOne,
     );
-    app.delete('/member/:id', celebrate({ params: Member_joi_params }), DeleteOne);
+    app.delete('/member', celebrate({ query: Member_joi_params }), DeleteOne);
   }
 }

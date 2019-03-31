@@ -10,13 +10,13 @@ export async function FindAll(req: Request, res: Response) {
 }
 
 export async function DeleteOne(req: Request, res: Response) {
-  res.status(200).send(await DeleteOneByID(req.params.id));
+  res.status(200).send(await DeleteOneByID(req.query.id));
 }
 
 export async function UpdateOne(req: Request, res: Response) {
-  res.status(200).send(await UpdateOneByID(req.params.id, req.body));
+  res.status(200).send(await UpdateOneByID(req.query.id, req.body));
 }
 
 export async function FindOne(req: Request, res: Response) {
-  res.status(200).send(await FindOneById(req.params.id));
+  res.status(200).send(await FindOneById(req.query.id));
 }
