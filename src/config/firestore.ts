@@ -17,8 +17,8 @@ export default class Firestore_ {
   }
 
   async getByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
-    const oneResult = await this.document_.where(fieldPath, opStr, value).get();
-    return oneResult.docs.map((doc: { data: () => void }) => doc.data());
+    const Result = await this.document_.where(fieldPath, opStr, value).get();
+    return Result.docs.map((doc: { data: () => void }) => doc.data());
   }
 
   async deleteByQuery(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: string) {
