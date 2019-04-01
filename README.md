@@ -9,7 +9,7 @@ Para probar todo correctamente se deben ingresar las credenciales personales usa
 ```` 
 # Crear la carpeta credentials/ y dentro el archivo '.env', si no configuras esto antes de iniciar, dará error
 
-# Solamente cambiar el url_host de mongodb
+# Se llama rober19_firebase porque así tengo mis credenciales
 
 API_KEYS={"rober19_firebase": {"project_id": "#####", "private_key" : "%%%%%", "client_email" : "@@@@@"}}
 
