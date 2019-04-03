@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { Create, FindAll, FindOne, DeleteOne } from './member.controller';
+import { Create, FindAll, FindOne, DeleteOne, UpdateOne } from './member.controller';
 import { Member_joi_body, Member_joi_params } from './member.model';
 import { celebrate } from 'celebrate';
 
@@ -15,7 +15,7 @@ export default class MemberRoutes {
     app.put(
       '/member',
       celebrate({ body: Member_joi_body, query: Member_joi_params }),
-      FindOne,
+      UpdateOne,
     );
     app.delete('/member', celebrate({ query: Member_joi_params }), DeleteOne);
   }

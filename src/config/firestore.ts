@@ -29,8 +29,18 @@ export default class Firestore_ {
     return deleted;
   }
 
-  async updateOne(id: string, value: object) {
-    return await this.document_.doc(id).update(value);
+  async updateByQuery(
+    fieldPath: string | FieldPath,
+    opStr: WhereFilterOp,
+    value: string,
+    NewItem: object,
+  ) {
+    //return await this.document_.doc(id).update(value);
+
+    const del_result = await this.document_.where(fieldPath, opStr, value).get();
+    let deleted = del_result.docs.map((doc: { data: () => void }) => doc.data());
+    del_result.forEach(doc => doc.ref.update(NewItem));
+    return deleted;
   }
   async getAll() {
     const data = await this.document_.get();

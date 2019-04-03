@@ -1,4 +1,5 @@
 import { dbMember, id_generator } from './member.model';
+import { resJson } from 'rober19-config';
 
 export async function Create(Member: object) {
   try {
@@ -27,7 +28,7 @@ export async function DeleteOneByID(MemberID: string) {
 
 export async function UpdateOneByID(MemberID: string, Member: object) {
   try {
-    return await dbMember.updateOne(MemberID, Member);
+    return resJson(await dbMember.updateByQuery('id', '==', MemberID, Member), 200);
   } catch (error) {
     return error;
   }
